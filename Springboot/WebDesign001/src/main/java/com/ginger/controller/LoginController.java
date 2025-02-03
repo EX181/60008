@@ -14,12 +14,16 @@ public class LoginController {
 
     @PostMapping("/login")
     @CrossOrigin()
-    public Result login(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
-           User user1 =  loginService.login(username,password);
-           if (user1 != null) {
-               return Result.success(user1,"登录成功");
+    public Result login(@RequestBody User user) {
+           User user1 =  loginService.selectByUsername(user.getUsername());
+           if (user1 == null) {
+               return Result.error("40","用户不存在");
            }else{
-                return Result.error("404","登陆失败");
+                if (user1.getPassword().equals(user.getPassword())) {
+                    return Result.success(user1,"登录成功！");
+                }
+                else return Result.error("41","密码错误");
+
            }
     }
 
@@ -31,6 +35,7 @@ public class LoginController {
             System.out.println("username:"+user1.getUsername()+"is existed");
             return Result.error("12","username is existed");
         }else{
+            user.setId(loginService.countAll());
             loginService.register(user);
             return Result.success(user);
         }

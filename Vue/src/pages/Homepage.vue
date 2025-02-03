@@ -6,9 +6,6 @@
 
 
   </div>
-  <footer>
-    <p>&copy; 2025 Library. All rights reserved.</p>
-  </footer>
 </template>
 
 <script>

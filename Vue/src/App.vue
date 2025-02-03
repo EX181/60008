@@ -3,32 +3,21 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import Homepage from "@/pages/Homepage.vue";
 import Head from "@/pages/Head.vue";
+import footer from "@/pages/footer.vue";
 </script>
 
 <template>
-  <div name="app">
-  <header>
-    <Head/>
-  </header>
-  <main>
-    <Homepage/>
-  </main>
-  </div>>
+  <el-container name="app">
+
+    <el-container>
+      <el-header><Head/></el-header>
+      <el-main><Homepage/></el-main>
+      <el-footer><footer/></el-footer>
+    </el-container>
+  </el-container>
 </template>
 
 <style>
 
-header {
-  background-color: #004d40;
-  color: white;
-  padding: 15px 0;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
-html, body, main{
-  height: 100%;
-  width: 100%;
-}
 
 </style>

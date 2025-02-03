@@ -10,4 +10,6 @@ public interface UserMapper {
 
     void add(User user);
 
+    Integer countAll();
+
 }

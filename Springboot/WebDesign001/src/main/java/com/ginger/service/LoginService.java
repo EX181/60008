@@ -8,6 +8,10 @@ public interface LoginService {
 
      User selectByUsername(User user);
 
+     User selectByUsername(String username);
+
+     Integer countAll();
+
 
      void register(User user);
 

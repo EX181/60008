@@ -6,8 +6,8 @@
 <mapper namespace="com.ginger.mapper.UserMapper">
 
     <insert id="add">
-    insert into user(username,password)
-    values(#{username}, #{password})
+    insert into user(id,username,password)
+    values(#{id},#{username}, #{password})
     </insert>
 
     <select id="select" resultType="com.ginger.pojo.User">
@@ -20,5 +20,10 @@
     select * from user
     where username = #{username}
     </select>
+
+    <select id="countAll" resultType="int">
+        select count(*) from user
+    </select>
+
 
 </mapper>

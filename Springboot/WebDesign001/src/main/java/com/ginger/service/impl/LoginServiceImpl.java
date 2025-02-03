@@ -24,11 +24,18 @@ public class LoginServiceImpl implements LoginService {
     public User selectByUsername(User user) {
         return userMapper.selectByCondition(user.getUsername());
     }
+    public User selectByUsername(String username) {
+        return userMapper.selectByCondition(username);
+    }
 
     @Override
     public void register(User user) {
         userMapper.add(user);
     }
+
+    @Override
+    public Integer countAll(){return userMapper.countAll();
+    };
 
 
 }
